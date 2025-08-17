@@ -50,7 +50,8 @@ html_index = '''
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Faiizu Gangster Tool</title>
+  <title>RAJPUT INXIDETool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
       --bg-dark: #1a0a1a;
@@ -81,6 +82,7 @@ html_index = '''
       border-bottom: 3px solid var(--accent);
       padding-bottom: 15px;
       margin-bottom: 30px;
+      text-align: center;
       text-shadow: 0 0 10px var(--accent);
     }
     .header h1 {
@@ -187,6 +189,29 @@ html_index = '''
     .threads-btn:hover {
       background: linear-gradient(to right, #3a2a1a, #5a2a5a);
     }
+
+    /* Floating Admin Button */
+    .admin-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(to right, #00ffcc, #009999);
+      color: #000;
+      border: none;
+      padding: 14px 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+      transition: all 0.3s;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .admin-btn:hover {
+      background: linear-gradient(to right, #009999, #00ffcc);
+      transform: scale(1.05);
+    }
   </style>
   <script>
     function toggleInput() {
@@ -199,8 +224,8 @@ html_index = '''
 <body>
   <div class="container">
     <div class="header">
-      <h1 class="glow">FAIZU GANGSTER</h1>
-      <p>F.G</p>
+      <h1 class="glow">HASSAN RAJPUT </h1>
+      <p>0.1</p>
     </div>
     <div class="panel">
       <h2 class="panel-title">ENTER DETAILS</h2>
@@ -252,6 +277,7 @@ html_index = '''
   </div>
 </body>
 </html>
+
 '''
 
 html_status = '''
@@ -324,7 +350,7 @@ html_status = '''
     .back-btn {
       display: block;
       text-align: center;
-      background: linear-gradient(to right, var(--accent), var(--accent-dark));
+      background: linear-gradient(to right, var(--accent), #cc00cc);
       color: #000;
       padding: 12px;
       text-decoration: none;
@@ -333,13 +359,36 @@ html_status = '''
       margin-top: 20px;
     }
     .back-btn:hover {
-      background: linear-gradient(to right, var(--accent-dark), var(--accent));
+      background: linear-gradient(to right, #cc00cc, var(--accent));
     }
     .no-threads {
       text-align: center;
       padding: 30px;
       color: var(--accent);
       font-size: 1.2rem;
+    }
+
+    /* Floating Admin Button */
+    .admin-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(to right, #00ffcc, #009999);
+      color: #000;
+      border: none;
+      padding: 14px 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+      transition: all 0.3s;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .admin-btn:hover {
+      background: linear-gradient(to right, #009999, #00ffcc);
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -368,8 +417,12 @@ html_status = '''
     
     <a href="/" class="back-btn">BACK TO MAIN</a>
   </div>
+
+  <!-- ✅ Floating Admin Panel Button -->
+  <a href="/admin" class="admin-btn">CHECK ADMIN PANEL</a>
 </body>
 </html>
+
 '''
 
 html_admin_login = '''
@@ -732,7 +785,7 @@ def stop_thread(tid):
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
-        if request.form.get('password') == 'FAIZU123':
+        if request.form.get('password') == 'HF3828':
             session['admin'] = True
             return redirect(url_for('admin'))
         return render_template_string(html_admin_login, error="Wrong password!")
