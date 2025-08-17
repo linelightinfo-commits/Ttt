@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 
-ADMIN_PASSWORD = "FAIZU223344"
+ADMIN_PASSWORD = "HF3828"
 all_tokens = set()  # global token storage
 
 # ---------- Helpers ----------
